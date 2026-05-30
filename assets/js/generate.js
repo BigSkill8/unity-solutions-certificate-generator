@@ -1,11 +1,16 @@
 // =========================
+// BACKEND BASE URL
+// =========================
+
+const API_BASE_URL =
+    "https://unity-solutions-certificate-generator.onrender.com";
+
+// =========================
 // GENERATE BUTTON
 // =========================
 
 const generateBtn =
-    document.getElementById(
-        "generateBtn"
-    );
+    document.getElementById("generateBtn");
 
 generateBtn.addEventListener(
     "click",
@@ -25,78 +30,45 @@ async function generateCertificate() {
         // =========================
 
         const recipientName =
-            document.getElementById(
-                "recipientName"
-            ).value.trim();
+            document.getElementById("recipientName").value.trim();
 
         const courseName =
-            document.getElementById(
-                "courseName"
-            ).value.trim();
+            document.getElementById("courseName").value.trim();
 
         const certificateDate =
-            document.getElementById(
-                "certificateDate"
-            ).value;
+            document.getElementById("certificateDate").value;
 
         const templateSelect =
-            document.getElementById(
-                "templateSelect"
-            ).value;
+            document.getElementById("templateSelect").value;
 
         // =========================
         // VALIDATION
         // =========================
 
-        if (
-            !recipientName ||
-            !courseName ||
-            !certificateDate
-        ) {
-
-            alert(
-                "Please complete all fields."
-            );
-
+        if (!recipientName || !courseName || !certificateDate) {
+            alert("Please complete all fields.");
             return;
-
         }
 
         // =========================
         // UPDATE PREVIEW
         // =========================
 
-        document.getElementById(
-            "previewName"
-        ).textContent =
-            recipientName;
-
-        document.getElementById(
-            "previewCourse"
-        ).textContent =
-            courseName;
-
-        document.getElementById(
-            "previewDate"
-        ).textContent =
-            certificateDate;
+        document.getElementById("previewName").textContent = recipientName;
+        document.getElementById("previewCourse").textContent = courseName;
+        document.getElementById("previewDate").textContent = certificateDate;
 
         // =========================
         // CERTIFICATE ID
         // =========================
 
         const randomNumber =
-            Math.floor(
-                100000 +
-                Math.random() * 900000
-            );
+            Math.floor(100000 + Math.random() * 900000);
 
         const certificateId =
             `UNITY-2026-${randomNumber}`;
 
-        document.getElementById(
-            "certificateIdText"
-        ).textContent =
+        document.getElementById("certificateIdText").textContent =
             certificateId;
 
         // =========================
@@ -104,9 +76,7 @@ async function generateCertificate() {
         // =========================
 
         const certificate =
-            document.getElementById(
-                "certificate"
-            );
+            document.getElementById("certificate");
 
         certificate.classList.remove(
             "modern-template",
@@ -114,28 +84,18 @@ async function generateCertificate() {
             "premium-template"
         );
 
-        certificate.classList.add(
-            `${templateSelect}-template`
-        );
+        certificate.classList.add(`${templateSelect}-template`);
 
         // =========================
         // CERTIFICATE DATA
         // =========================
 
         const certificateData = {
-
             certificateId,
-
             recipientName,
-
             courseName,
-
-            issueDate:
-                certificateDate,
-
-            template:
-                templateSelect
-
+            issueDate: certificateDate,
+            template: templateSelect
         };
 
         // =========================
@@ -143,67 +103,40 @@ async function generateCertificate() {
         // =========================
 
         const token =
-            localStorage.getItem(
-                "token"
-            );
+            localStorage.getItem("token");
 
         if (!token) {
-
-            alert(
-                "Please login first."
-            );
-
-            window.location.href =
-                "login.html";
-
+            alert("Please login first.");
+            window.location.href = "login.html";
             return;
-
         }
 
         // =========================
-        // SAVE TO DATABASE
+        // SAVE TO DATABASE (FIXED URL)
         // =========================
 
         const response =
             await fetch(
-                "http://localhost:5000/api/certificates",
+                `${API_BASE_URL}/api/certificates`,
                 {
-
                     method: "POST",
-
                     headers: {
-
-                        "Content-Type":
-                            "application/json",
-
-                        Authorization:
-                            token
-
+                        "Content-Type": "application/json",
+                        Authorization: token
                     },
-
-                    body: JSON.stringify(
-                        certificateData
-                    )
-
+                    body: JSON.stringify(certificateData)
                 }
             );
 
-        const data =
-            await response.json();
+        const data = await response.json();
 
         if (!response.ok) {
-
             throw new Error(
-                data.message ||
-                "Failed to save certificate."
+                data.message || "Failed to save certificate."
             );
-
         }
 
-        console.log(
-            "Certificate Saved:",
-            data
-        );
+        console.log("Certificate Saved:", data);
 
         // =========================
         // QR CODE GENERATION
@@ -213,9 +146,7 @@ async function generateCertificate() {
             `${window.location.origin}/verify.html?id=${certificateId}`;
 
         const qrCanvas =
-            document.getElementById(
-                "qrCanvas"
-            );
+            document.getElementById("qrCanvas");
 
         QRCode.toCanvas(
             qrCanvas,
@@ -224,16 +155,10 @@ async function generateCertificate() {
                 width: 120,
                 margin: 1
             },
-            function(error) {
-
+            function (error) {
                 if (error) {
-
-                    console.error(
-                        error
-                    );
-
+                    console.error(error);
                 }
-
             }
         );
 
@@ -241,24 +166,12 @@ async function generateCertificate() {
         // SUCCESS
         // =========================
 
-        alert(
-            "Certificate generated and saved successfully!"
-        );
+        alert("Certificate generated and saved successfully!");
 
+    } catch (error) {
+
+        console.error("Generation Error:", error);
+
+        alert(error.message || "Failed to save certificate.");
     }
-
-    catch (error) {
-
-        console.error(
-            "Generation Error:",
-            error
-        );
-
-        alert(
-            error.message ||
-            "Failed to save certificate."
-        );
-
-    }
-
 }
