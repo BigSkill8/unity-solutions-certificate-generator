@@ -1,102 +1,78 @@
+// =========================
+// BACKEND BASE URL
+// =========================
+
+const API_BASE_URL =
+    "https://unity-solutions-certificate-generator.onrender.com";
+
+// =========================
+// LOGIN BUTTON EVENT
+// =========================
+
 document
-    .getElementById(
-        "loginBtn"
-    )
-    .addEventListener(
-        "click",
-        login
-    );
+    .getElementById("loginBtn")
+    .addEventListener("click", login);
+
+// =========================
+// LOGIN FUNCTION
+// =========================
 
 async function login() {
 
-    const email =
-        document
-            .getElementById(
-                "email"
-            )
-            .value
-            .trim();
+    const email = document
+        .getElementById("email")
+        .value
+        .trim();
 
-    const password =
-        document
-            .getElementById(
-                "password"
-            )
-            .value
-            .trim();
+    const password = document
+        .getElementById("password")
+        .value
+        .trim();
 
-    if (
-        !email ||
-        !password
-    ) {
-
-        alert(
-            "Please enter email and password."
-        );
-
+    if (!email || !password) {
+        alert("Please enter email and password.");
         return;
-
     }
 
     try {
 
-        const response =
-            await fetch(
-                "http://localhost:5000/api/auth/login",
-                {
-                    method: "POST",
+        const response = await fetch(
+            `${API_BASE_URL}/api/auth/login`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email,
+                    password
+                })
+            }
+        );
 
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
-
-                    body: JSON.stringify({
-                        email,
-                        password
-                    })
-                }
-            );
-
-        const data =
-            await response.json();
+        const data = await response.json();
 
         if (response.ok && data.token) {
 
-            localStorage.setItem(
-                "token",
-                data.token
-            );
+            localStorage.setItem("token", data.token);
+
+            alert("Login successful.");
+
+            window.location.href = "dashboard.html";
+
+        } else {
 
             alert(
-                "Login successful."
-            );
-
-            window.location.href =
-                "dashboard.html";
-
-        }
-
-        else {
-
-            alert(
-                data.message ||
-                "Invalid email or password."
+                data.message || "Invalid email or password."
             );
 
         }
 
-    }
+    } catch (error) {
 
-    catch (error) {
+        console.error(error);
 
-        console.error(
-            error
-        );
-
-        alert(
-            "Server connection failed."
-        );
+        alert("Server connection failed.");
 
     }
 
