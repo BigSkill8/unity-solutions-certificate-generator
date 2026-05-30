@@ -1,5 +1,5 @@
 const Certificate =
-    require("../models/Certificate");
+    require("../models/certificate");
 
 // =========================
 // CREATE CERTIFICATE
