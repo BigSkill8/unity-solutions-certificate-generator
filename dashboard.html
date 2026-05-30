@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Certificate Dashboard
+    </title>
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="assets/css/responsive.css"
+    >
+
+    <!-- GOOGLE FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Unity Solutions
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="generate.html">
+                    Generate
+                </a>
+            </li>
+
+            <li>
+                <a href="verify.html">
+                    Verify
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="dashboard.html"
+                    class="active"
+                >
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#"
+                    id="logoutBtn"
+                >
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- DASHBOARD SECTION -->
+
+    <section class="dashboard-hero">
+
+        <div class="dashboard-container">
+
+            <!-- HEADER -->
+
+            <div class="dashboard-header">
+
+                <h1>
+                    Certificate Dashboard
+                </h1>
+
+                <p>
+                    Monitor and manage all certificates issued by Unity Solutions.
+                </p>
+
+            </div>
+
+            <!-- STATISTICS -->
+
+            <div class="dashboard-stats">
+
+                <div class="stat-card">
+
+                    <h3 id="totalCertificates">
+                        0
+                    </h3>
+
+                    <p>
+                        Total Certificates
+                    </p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <h3 id="activeCertificates">
+                        0
+                    </h3>
+
+                    <p>
+                        Active Certificates
+                    </p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <h3 id="templateCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Templates Used
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- SEARCH -->
+
+            <div class="dashboard-search">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by certificate ID, recipient or course..."
+                >
+
+            </div>
+
+            <!-- TABLE -->
+
+            <div class="dashboard-table-wrapper">
+
+                <table class="dashboard-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Certificate ID
+                            </th>
+
+                            <th>
+                                Recipient
+                            </th>
+
+                            <th>
+                                Course
+                            </th>
+
+                            <th>
+                                Issue Date
+                            </th>
+
+                            <th>
+                                Template
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="certificateTableBody">
+
+                        <tr>
+
+                            <td colspan="7">
+                                Loading certificates...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- AUTH CHECK -->
+    <script src="assets/js/auth.js"></script>
+
+    <!-- DASHBOARD -->
+    <script src="assets/js/dashboard.js"></script>
+
+    <!-- LOGOUT -->
+    <script>
+
+        const logoutBtn =
+            document.getElementById(
+                "logoutBtn"
+            );
+
+        logoutBtn.addEventListener(
+            "click",
+            function(e) {
+
+                e.preventDefault();
+
+                localStorage.removeItem(
+                    "token"
+                );
+
+                window.location.href =
+                    "login.html";
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>

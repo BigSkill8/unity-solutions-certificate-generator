@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Generate Certificate</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="assets/css/style.css">
+
+    <link rel="stylesheet"
+          href="assets/css/generate.css">
+
+    <link rel="stylesheet"
+          href="assets/css/responsive.css">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            Unity Solutions
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="generate.html">
+                    Generate
+                </a>
+            </li>
+
+            <li>
+                <a href="verify.html">
+                    Verify
+                </a>
+            </li>
+
+            <li>
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <header class="generate-header">
+
+        <h1>
+            Certificate Generator
+        </h1>
+
+        <p>
+            Create elegant professional certificates instantly.
+        </p>
+
+    </header>
+
+    <!-- MAIN -->
+    <main class="generator-container">
+
+        <!-- FORM -->
+        <section class="form-section">
+
+            <h2>
+                Certificate Details
+            </h2>
+
+            <form id="certificateForm">
+
+                <!-- NAME -->
+                <div class="form-group">
+
+                    <label>
+                        Recipient Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="recipientName"
+                        placeholder="Enter recipient name"
+                    >
+
+                </div>
+
+                <!-- COURSE -->
+                <div class="form-group">
+
+                    <label>
+                        Course / Event
+                    </label>
+
+                    <input
+                        type="text"
+                        id="courseName"
+                        placeholder="Enter course or event"
+                    >
+
+                </div>
+
+                <!-- DATE -->
+                <div class="form-group">
+
+                    <label>
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="certificateDate"
+                    >
+
+                </div>
+
+                <!-- TEMPLATE -->
+                <div class="form-group">
+
+                    <label>
+                        Select Template
+                    </label>
+
+                    <select id="templateSelect">
+
+                        <option value="modern">
+                            Modern
+                        </option>
+
+                        <option value="classic">
+                            Classic
+                        </option>
+
+                        <option value="premium">
+                            Premium
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- GENERATE -->
+                <button
+                    type="button"
+                    id="generateBtn"
+                >
+                    Generate Certificate
+                </button>
+
+                <!-- DOWNLOAD -->
+                <button
+                    type="button"
+                    id="downloadBtn"
+                >
+                    Download PDF
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- PREVIEW -->
+        <section class="preview-section">
+
+            <div
+                class="certificate modern-template"
+                id="certificate"
+            >
+
+                <!-- LOGO -->
+                 <h2 class="certificate-logo-title">
+
+                    Unity Solutions
+
+                </h2>
+                <img
+                    src="assets/images/logo.jpg"
+                    alt="Logo"
+                    class="certificate-logo"
+                >
+
+                <!-- TITLE -->
+                <h2 class="certificate-title">
+
+                    Certificate of Completion
+
+                </h2>
+
+                <!-- TEXT -->
+                <p class="presented-text">
+
+                    This certificate is proudly presented to
+
+                </p>
+
+                <!-- NAME -->
+                <h1 id="previewName">
+
+                    John Doe
+
+                </h1>
+
+                <!-- TEXT -->
+                <p class="completion-text">
+
+                    for successfully completing
+
+                </p>
+
+                <!-- COURSE -->
+                <h3 id="previewCourse">
+
+                    Web Development Masterclass
+
+                </h3>
+
+                <!-- DATE -->
+                <p class="date-text">
+
+                    Issued on:
+
+                    <span id="previewDate">
+
+                        January 1, 2026
+
+                    </span>
+
+                </p>
+
+                <!-- CERTIFICATE ID -->
+                <div class="certificate-id-box">
+
+                    <span class="certificate-id-label">
+
+                        Certificate ID
+
+                    </span>
+
+                    <p id="certificateIdText">
+
+                        UNITY-2026-000001
+
+                    </p>
+
+                </div>
+
+                <!-- QR CODE -->
+                <div class="qr-code-box">
+
+                    <canvas id="qrCanvas"></canvas>
+
+                </div>
+
+                <!-- FOOTER -->
+                <div class="certificate-footer">
+
+                    <!-- SIGNATURE -->
+                    <div class="signature-box">
+
+                        <img
+                            src="assets/images/signature.png"
+                            alt="Signature"
+                            class="signature-image"
+                        >
+
+                        <div class="signature-line"></div>
+
+                        <p class="signature-text">
+
+                            Director Signature
+
+                        </p>
+
+                    </div>
+
+                    <!-- SEAL -->
+                    <div class="seal-box">
+
+                        <img
+                            src="assets/images/seal.png"
+                            alt="Seal"
+                            class="seal-image"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- QR CODE -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+    <!-- JS -->
+    <script src="assets/js/download.js"></script>
+
+    <script src="assets/js/generate.js"></script>
+
+</body>
+</html>

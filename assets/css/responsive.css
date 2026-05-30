@@ -1,0 +1,159 @@
+/* =========================
+   TABLETS
+========================= */
+@media(max-width: 992px){
+
+    /* HERO */
+    .hero h1{
+        font-size: 2.4rem;
+    }
+
+    /* GENERATOR LAYOUT */
+    .generator-container{
+        grid-template-columns: 1fr;
+    }
+
+    /* CERTIFICATE */
+    .certificate{
+        padding: 40px;
+    }
+
+    #previewName{
+        font-size: 2.5rem;
+    }
+
+    #previewCourse{
+        font-size: 1.5rem;
+    }
+
+}
+
+/* =========================
+   MOBILE DEVICES
+========================= */
+@media(max-width: 768px){
+
+    /* NAVBAR */
+    .navbar{
+        flex-direction: column;
+        gap: 20px;
+
+        padding: 20px;
+    }
+
+    .nav-links{
+        flex-wrap: wrap;
+        justify-content: center;
+
+        gap: 15px;
+    }
+
+    /* HERO */
+    .hero{
+        padding: 30px 20px;
+    }
+
+    .hero h1{
+        font-size: 2rem;
+    }
+
+    .hero p{
+        font-size: 1rem;
+    }
+
+    /* HERO BUTTONS */
+    .hero-buttons{
+        flex-direction: column;
+    }
+
+    button{
+        width: 100%;
+    }
+
+    /* GENERATOR */
+    .generator-container{
+        padding: 20px;
+    }
+
+    .form-section{
+        padding: 20px;
+    }
+
+    /* CERTIFICATE */
+    .certificate{
+        padding: 25px;
+        border-width: 6px;
+    }
+
+    .certificate-logo{
+        width: 70px;
+    }
+
+    .certificate-title{
+        font-size: 2rem;
+    }
+
+    #previewName{
+        font-size: 2rem;
+    }
+
+    #previewCourse{
+        font-size: 1.3rem;
+    }
+
+    .presented-text,
+    .completion-text,
+    .date-text{
+        font-size: 1rem;
+    }
+
+    /* FOOTER SECTION */
+    .certificate-footer{
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .signature-line{
+        width: 180px;
+    }
+
+    .seal-image{
+        width: 90px;
+    }
+
+}
+
+/* =========================
+   SMALL MOBILE DEVICES
+========================= */
+@media(max-width: 480px){
+
+    .hero h1{
+        font-size: 1.7rem;
+    }
+
+    .generate-header h1{
+        font-size: 2rem;
+    }
+
+    .certificate{
+        padding: 20px;
+    }
+
+    .certificate-title{
+        font-size: 1.6rem;
+    }
+
+    #previewName{
+        font-size: 1.6rem;
+    }
+
+    #previewCourse{
+        font-size: 1.1rem;
+    }
+
+    .signature-image{
+        width: 120px;
+    }
+
+}

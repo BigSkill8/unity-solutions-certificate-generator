@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Verify Certificate</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="assets/css/style.css">
+
+    <link rel="stylesheet"
+          href="assets/css/responsive.css">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            Unity Solutions
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="generate.html">
+                    Generate
+                </a>
+            </li>
+
+            <li>
+                <a href="verify.html">
+                    Verify
+                </a>
+            </li>
+
+            <li>
+    <a href="dashboard.html">
+        Dashboard
+    </a>
+</li>
+
+        </ul>
+
+    </nav>
+
+    <!-- VERIFY HERO -->
+    <section class="verify-hero">
+
+        <div class="verify-container">
+
+            <!-- HEADER -->
+            <div class="verify-header">
+
+                <h1>
+                    Verify Certificate
+                </h1>
+
+                <p>
+                    Confirm the authenticity of certificates
+                    issued by Unity Solutions.
+                </p>
+
+            </div>
+
+            <!-- VERIFY CARD -->
+            <div class="verify-card">
+
+                <!-- INPUT -->
+                <div class="form-group">
+
+                    <label>
+                        Certificate ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="certificateId"
+                        placeholder="Example: UNITY-2026-001"
+                    >
+
+                </div>
+
+                <!-- BUTTON -->
+                <button id="verifyBtn">
+
+                    Verify Now
+
+                </button>
+
+                <!-- RESULT -->
+                <div
+                    class="verification-result"
+                    id="verificationResult"
+                >
+
+                    <div class="status-icon">
+
+                        ✔
+
+                    </div>
+
+                    <h2 id="statusTitle">
+
+                        Verification Ready
+
+                    </h2>
+
+                    <p id="statusText">
+
+                        Enter a certificate ID to begin verification.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- JS -->
+    <script src="assets/js/verify.js"></script>
+
+</body>
+</html>

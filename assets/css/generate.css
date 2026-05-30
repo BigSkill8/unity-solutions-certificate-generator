@@ -1,0 +1,484 @@
+/* =========================
+   GENERATOR LAYOUT
+========================= */
+.generator-container{
+    display: grid;
+
+    grid-template-columns: 380px 1fr;
+
+    gap: 35px;
+
+    padding: 40px 8% 80px;
+
+    align-items: start;
+}
+
+/* =========================
+   FORM SECTION
+========================= */
+.form-section{
+    background:
+        rgba(255,255,255,0.75);
+
+    backdrop-filter: blur(14px);
+
+    border:
+        1px solid rgba(255,255,255,0.3);
+
+    padding: 35px;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.06);
+
+    height: fit-content;
+
+    position: sticky;
+    top: 120px;
+}
+
+/* FORM TITLE */
+.form-section h2{
+    font-size: 1.8rem;
+
+    margin-bottom: 30px;
+
+    color: #0f172a;
+}
+
+/* =========================
+   FORM GROUP
+========================= */
+.form-group{
+    margin-bottom: 22px;
+}
+
+/* LABEL */
+.form-group label{
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    color: #334155;
+}
+
+/* INPUTS */
+.form-group input,
+.form-group select{
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid #dbe4f0;
+
+    background:
+        rgba(255,255,255,0.9);
+
+    font-size: 1rem;
+
+    transition: 0.3s ease;
+}
+
+/* INPUT FOCUS */
+.form-group input:focus,
+.form-group select:focus{
+    outline: none;
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 4px rgba(37,99,235,0.12);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+#generateBtn,
+#downloadBtn{
+    width: 100%;
+
+    padding: 16px;
+
+    border-radius: 16px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+/* GENERATE BUTTON */
+#generateBtn{
+    background:
+        linear-gradient(
+            to right,
+            #2563eb,
+            #4f46e5
+        );
+
+    color: white;
+
+    margin-top: 10px;
+
+    box-shadow:
+        0 10px 25px rgba(37,99,235,0.25);
+}
+
+#generateBtn:hover{
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 30px rgba(37,99,235,0.35);
+}
+
+/* DOWNLOAD BUTTON */
+#downloadBtn{
+    margin-top: 15px;
+
+    background:
+        linear-gradient(
+            to right,
+            #111827,
+            #1f2937
+        );
+
+    color: white;
+
+    box-shadow:
+        0 10px 25px rgba(17,24,39,0.18);
+}
+
+#downloadBtn:hover{
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 30px rgba(17,24,39,0.28);
+}
+
+/* =========================
+   PREVIEW SECTION
+========================= */
+.preview-section{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* =========================
+   CERTIFICATE
+========================= */
+.certificate{
+    width: 100%;
+    max-width: 1050px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8fafc
+        );
+
+    padding: 80px 70px;
+
+    border-radius: 32px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.08);
+
+    transition: 0.35s ease;
+
+    text-align: center;
+}
+
+/* HOVER EFFECT */
+.certificate:hover{
+    transform: translateY(-5px);
+}
+
+/* TOP GRADIENT LINE */
+.certificate::before{
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 12px;
+
+    background:
+        linear-gradient(
+            to right,
+            #2563eb,
+            #7c3aed
+        );
+}
+
+/* =========================
+   LOGO
+========================= */
+.certificate-logo{
+    width: 110px;
+
+    display: block;
+
+    margin:
+        0 auto 25px;
+}
+
+/* =========================
+   CERTIFICATE TITLE
+========================= */
+.certificate-title{
+    font-size: 3.2rem;
+
+    font-weight: 700;
+
+    color: #0f172a;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+/* =========================
+   DESCRIPTION TEXT
+========================= */
+.presented-text,
+.completion-text,
+.date-text{
+    color: #64748b;
+
+    font-size: 1.08rem;
+
+    line-height: 1.8;
+
+    text-align: center;
+}
+
+/* =========================
+   RECIPIENT NAME
+========================= */
+#previewName{
+    font-size: 4rem;
+
+    font-weight: 700;
+
+    margin: 35px 0;
+
+    color: #1e293b;
+
+    text-align: center;
+}
+
+/* =========================
+   COURSE NAME
+========================= */
+#previewCourse{
+    font-size: 2rem;
+
+    margin: 25px 0;
+
+    color: #2563eb;
+
+    font-weight: 600;
+
+    text-align: center;
+}
+
+/* =========================
+   CERTIFICATE FOOTER
+========================= */
+.certificate-footer{
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 90px;
+}
+
+/* =========================
+   SIGNATURE AREA
+========================= */
+.signature-box{
+    text-align: center;
+}
+
+/* SIGNATURE IMAGE */
+.signature-image{
+    width: 170px;
+
+    margin-bottom: 10px;
+}
+
+/* SIGNATURE LINE */
+.signature-line{
+    width: 230px;
+
+    border-top:
+        2px solid #1e293b;
+
+    margin:
+        0 auto 12px;
+}
+
+/* SIGNATURE TEXT */
+.signature-text{
+    color: #475569;
+
+    font-weight: 500;
+}
+
+/* =========================
+   SEAL
+========================= */
+.seal-image{
+    width: 130px;
+
+    opacity: 0.92;
+}
+
+/* =========================
+   TEMPLATE: MODERN
+========================= */
+.modern-template{
+    border:
+        2px solid #2563eb;
+}
+
+/* =========================
+   TEMPLATE: CLASSIC
+========================= */
+.classic-template{
+    background:
+        linear-gradient(
+            145deg,
+            #fffaf0,
+            #fef3c7
+        );
+
+    border:
+        2px solid #92400e;
+}
+
+.classic-template .certificate-title{
+    color: #78350f;
+}
+
+.classic-template #previewCourse{
+    color: #92400e;
+}
+
+/* =========================
+   TEMPLATE: PREMIUM
+========================= */
+.premium-template{
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #e5e7eb
+        );
+
+    border:
+        2px solid #111827;
+}
+
+.premium-template .certificate-title{
+    color: #111827;
+}
+
+.premium-template #previewCourse{
+    color: #1f2937;
+}
+
+/* =========================
+   CERTIFICATE ID BOX
+========================= */
+.certificate-id-box{
+    margin-top: 35px;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(37,99,235,0.06);
+
+    border:
+        1px solid rgba(37,99,235,0.12);
+
+    display: inline-block;
+}
+
+/* LABEL */
+.certificate-id-label{
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #64748b;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+/* ID TEXT */
+#certificateIdText{
+    font-size: 1.2rem;
+
+    font-weight: 700;
+
+    color: #2563eb;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   QR CODE
+========================= */
+.qr-code-box{
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: center;
+}
+
+/* QR CANVAS */
+#qrCanvas{
+    padding: 12px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.08);
+}
