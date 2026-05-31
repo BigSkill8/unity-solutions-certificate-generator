@@ -99,20 +99,22 @@ async function generateCertificate() {
         };
 
         // =========================
-        // AUTH TOKEN
+        // OPTIONAL AUTH (ONLY IF ADMIN EXISTS)
         // =========================
 
-        const token =
-            localStorage.getItem("token");
+        const token = localStorage.getItem("token");
 
-        if (!token) {
-            alert("Please login first.");
-            window.location.href = "login.html";
-            return;
+        const headers = {
+            "Content-Type": "application/json"
+        };
+
+        // Only attach token if it exists (DO NOT BLOCK PUBLIC USERS)
+        if (token) {
+            headers["Authorization"] = token;
         }
 
         // =========================
-        // SAVE TO DATABASE (FIXED URL)
+        // SAVE TO DATABASE
         // =========================
 
         const response =
@@ -120,10 +122,7 @@ async function generateCertificate() {
                 `${API_BASE_URL}/api/certificates`,
                 {
                     method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: token
-                    },
+                    headers,
                     body: JSON.stringify(certificateData)
                 }
             );
@@ -166,7 +165,7 @@ async function generateCertificate() {
         // SUCCESS
         // =========================
 
-        alert("Certificate generated and saved successfully!");
+        alert("Certificate generated successfully!");
 
     } catch (error) {
 
