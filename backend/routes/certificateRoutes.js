@@ -1,70 +1,47 @@
-const express =
-    require("express");
+const express = require("express");
 
-const router =
-    express.Router();
+const router = express.Router();
 
 const {
-
     createCertificate,
-
     verifyCertificate,
-
     getCertificates,
-
     deleteCertificate
+} = require("../controllers/certificateController");
 
-} = require(
-    "../controllers/certificateController"
-);
+const authMiddleware = require("../middleware/authMiddleware");
 
-const authMiddleware =
-    require(
-        "../middleware/authMiddleware"
-    );
 
 // =========================
 // CREATE CERTIFICATE
-// ADMIN ONLY
+// PUBLIC (NO LOGIN REQUIRED)
 // =========================
 
-router.post(
-    "/",
-    authMiddleware,
-    createCertificate
-);
+router.post("/", createCertificate);
+
 
 // =========================
 // VERIFY CERTIFICATE
 // PUBLIC
 // =========================
 
-router.get(
-    "/verify/:id",
-    verifyCertificate
-);
+router.get("/verify/:id", verifyCertificate);
+
 
 // =========================
 // GET ALL CERTIFICATES
 // ADMIN ONLY
 // =========================
 
-router.get(
-    "/",
-    authMiddleware,
-    getCertificates
-);
+router.get("/", authMiddleware, getCertificates);
+
 
 // =========================
 // DELETE CERTIFICATE
 // ADMIN ONLY
 // =========================
 
-router.delete(
-    "/:id",
-    authMiddleware,
-    deleteCertificate
-);
+router.delete("/:id", authMiddleware, deleteCertificate);
 
-module.exports =
-    router;
+
+module.exports = router;
